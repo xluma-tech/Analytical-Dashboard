@@ -56,23 +56,25 @@ export function Sidebar() {
     return (
         <aside
             className={cn(
-                "relative flex flex-col border-r border-border bg-surface/50 backdrop-blur-xl transition-all duration-300 h-screen sticky top-0",
+                "relative flex flex-col border-r border-white/5 bg-surface-deep/80 backdrop-blur-2xl transition-all duration-300 h-screen sticky top-0 shadow-strong",
                 collapsed ? "w-20" : "w-64"
             )}
         >
             {/* Logo */}
-            <div className="h-20 flex items-center px-6 border-b border-border/50">
-                <div className="size-8 rounded-lg bg-gradient-to-br from-primary to-accent shrink-0" />
-                <span className={cn("ml-3 font-bold text-xl tracking-tight transition-opacity duration-300", collapsed ? "opacity-0 hidden" : "opacity-100")}>
+            <div className="h-20 flex items-center px-6 border-b border-white/5">
+                <div className="size-8 rounded-lg bg-gradient-to-br from-[#00F0FF] to-[#7000FF] shadow-neon shrink-0 flex items-center justify-center">
+                    <div className="size-3 bg-white rounded-full mix-blend-overlay" />
+                </div>
+                <span className={cn("ml-3 font-bold text-xl tracking-tight transition-opacity duration-300 text-white", collapsed ? "opacity-0 hidden" : "opacity-100")}>
                     Nova
                 </span>
             </div>
 
             {/* Nav */}
-            <div className="flex-1 py-6 px-3 space-y-8 overflow-y-auto">
+            <div className="flex-1 py-6 px-3 space-y-8 overflow-y-auto scrollbar-hide">
                 {sections.map((section, idx) => (
                     <div key={idx}>
-                        <div className={cn("px-3 mb-2 text-xs font-semibold text-muted uppercase tracking-wider transition-opacity", collapsed && "opacity-0 text-center")}>
+                        <div className={cn("px-3 mb-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider transition-opacity", collapsed && "opacity-0 text-center")}>
                             {section.label}
                         </div>
                         <nav className="space-y-1">
@@ -83,15 +85,20 @@ export function Sidebar() {
                                         key={item.label}
                                         href={item.href}
                                         className={cn(
-                                            "flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group relative",
+                                            "flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden",
                                             isActive
-                                                ? "bg-primary/10 text-primary font-medium"
-                                                : "text-muted hover:text-foreground hover:bg-surface-alt/50"
+                                                ? "bg-primary/10 text-[#00F0FF]"
+                                                : "text-muted-foreground hover:text-white hover:bg-white/5"
                                         )}
                                     >
-                                        {isActive && <div className="absolute left-0 w-1 h-6 bg-primary rounded-r-full" />}
-                                        <item.icon className={cn("size-5", isActive ? "text-primary" : "text-muted-foreground group-hover:text-foreground")} />
-                                        <span className={cn("transition-opacity duration-300", collapsed ? "opacity-0 hidden" : "opacity-100")}>
+                                        {isActive && (
+                                            <>
+                                                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-[#00F0FF] rounded-r-full shadow-[0_0_10px_#00F0FF]" />
+                                                <div className="absolute inset-0 bg-gradient-to-r from-[#00F0FF]/10 to-transparent opacity-50" />
+                                            </>
+                                        )}
+                                        <item.icon className={cn("size-5 relative z-10", isActive ? "text-[#00F0FF] drop-shadow-[0_0_5px_rgba(0,240,255,0.5)]" : "group-hover:text-white transition-colors")} />
+                                        <span className={cn("transition-opacity duration-300 relative z-10 font-medium", collapsed ? "opacity-0 hidden" : "opacity-100")}>
                                             {item.label}
                                         </span>
                                     </Link>
@@ -103,10 +110,10 @@ export function Sidebar() {
             </div>
 
             {/* Footer */}
-            <div className="p-4 border-t border-border/50">
+            <div className="p-4 border-t border-white/5">
                 <button
                     onClick={() => setCollapsed(!collapsed)}
-                    className="flex items-center justify-center w-full h-10 rounded-xl bg-surface-alt/50 hover:bg-surface-alt transition-colors"
+                    className="flex items-center justify-center w-full h-10 rounded-xl bg-surface-alt/50 hover:bg-white/10 transition-colors text-muted-foreground hover:text-white"
                 >
                     {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
                 </button>
