@@ -45,8 +45,8 @@ export default function TeamPage() {
                     <button
                         key={filter}
                         className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${i === 0
-                                ? "bg-primary text-white shadow-neon"
-                                : "bg-surface-alt/50 text-muted-foreground hover:text-white hover:bg-surface-alt"
+                            ? "bg-primary text-white shadow-neon"
+                            : "bg-surface-alt/50 text-muted-foreground hover:text-white hover:bg-surface-alt"
                             }`}
                     >
                         {filter}
@@ -75,7 +75,7 @@ export default function TeamPage() {
                                 </span>
                             </div>
                             <div className={`absolute bottom-0 right-1 size-4 rounded-full border-2 border-surface ${member.status === 'Online' ? 'bg-success shadow-[0_0_10px_var(--success)]' :
-                                    member.status === 'Away' ? 'bg-warning' : 'bg-muted'
+                                member.status === 'Away' ? 'bg-warning' : 'bg-muted'
                                 }`} />
                         </div>
 
