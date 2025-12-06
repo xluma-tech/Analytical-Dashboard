@@ -29,7 +29,7 @@ export function DominanceChart() {
             </div>
 
             <div className="h-[120px]">
-                <ResponsiveContainer width="100%" height="100%" minWidth={0}>
+                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                     <BarChart data={data} barGap={10}>
                         <defs>
                             {data.map((entry, index) => (

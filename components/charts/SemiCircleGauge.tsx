@@ -31,9 +31,9 @@ export function SemiCircleGauge({ value, max, label, sublabel }: GaugeProps) {
     );
 
     return (
-        <div className="h-full flex flex-col items-center justify-center relative">
+        <div className="h-full w-full flex flex-col items-center justify-center relative">
             <div className="w-full h-32">
-                <ResponsiveContainer width="100%" height="100%" minWidth={0}>
+                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                     <PieChart>
                         <Pie
                             data={data}

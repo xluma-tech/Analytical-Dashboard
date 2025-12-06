@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700"],
+    variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
     title: "Nova Analytics",
@@ -17,7 +21,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" className="dark">
-            <body className={cn(inter.className, "bg-background text-foreground min-h-screen selection:bg-primary selection:text-white")}>
+            <body className={cn(poppins.variable, "font-sans bg-background text-foreground min-h-screen selection:bg-primary selection:text-white text-[17px]")}>
                 {children}
             </body>
         </html>

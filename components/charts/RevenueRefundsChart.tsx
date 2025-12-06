@@ -30,7 +30,7 @@ export function RevenueRefundsChart({ data }: RevenueChartProps) {
 
     return (
         <div className="h-[400px] w-full mt-4">
-            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
+            <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                 <ComposedChart data={data} margin={{ top: 20, right: 20, bottom: 20, left: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border)" />
                     <XAxis

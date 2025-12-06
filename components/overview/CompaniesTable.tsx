@@ -15,11 +15,14 @@ const companies = [
     { name: "IronGate Capital", industry: "Investment", location: "Toronto, CA", status: "Active", lastInteraction: "4 hours ago", users: "12k+" },
     { name: "PulseWave Innovations", industry: "MedTech", location: "Boston, USA", status: "Review", lastInteraction: "1 week ago", users: "300+" },
     { name: "Solaris Energy Labs", industry: "Energy", location: "Madrid, ES", status: "Active", lastInteraction: "Just now", users: "50k+" },
+    { name: "Nebula AI", industry: "AI", location: "Austin, USA", status: "Active", lastInteraction: "2 days ago", users: "15k+" },
+    { name: "Vertex Logic", industry: "Software", location: "Tel Aviv, IL", status: "Review", lastInteraction: "5 hours ago", users: "8k+" },
+    { name: "Cyber Shield", industry: "Security", location: "London, UK", status: "Active", lastInteraction: "1 day ago", users: "100k+" },
 ];
 
 export function CompaniesTable() {
     return (
-        <Card className="overflow-hidden border-white/5 bg-surface-deep/50 backdrop-blur-md p-0 h-full">
+        <Card className="overflow-hidden border-white/5 bg-surface-deep/50 backdrop-blur-md p-0 h-[400px]">
             <div className="flex flex-col h-full">
                 <div className="p-6 border-b border-white/5 flex justify-between items-center flex-shrink-0">
                     <div>

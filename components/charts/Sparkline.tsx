@@ -21,7 +21,7 @@ export function Sparkline({ data, color = "#4F8BFF", height = 50 }: SparklinePro
 
     return (
         <div style={{ height }}>
-            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
+            <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                 <LineChart data={chartData}>
                     <Line
                         type="monotone"
