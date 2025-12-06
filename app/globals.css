@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light Mode Defaults */
+  --background: #F5F7FB;
+  --surface: #FFFFFF;
+  --surface-alt: #F0F3FA;
+  --primary: #3056FF;
+  --primary-soft: rgba(48, 86, 255, 0.12);
+  --accent: #FF4F6E;
+  --accent-soft: rgba(255, 79, 110, 0.12);
+  --success: #1DBF73;
+  --warning: #FFB020;
+  --danger: #E02D3C;
+  --text: #0B1020;
+  --text-muted: rgba(11, 16, 32, 0.65);
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow-strong: 0 18px 60px rgba(15, 23, 42, 0.15);
+}
+
+.dark {
+  /* Dark Mode Overrides */
+  --background: #050816;
+  --surface: #0B1020;
+  --surface-alt: #11162A;
+  --primary: #4F8BFF;
+  --primary-soft: rgba(79, 139, 255, 0.18);
+  --accent: #FF5C7A;
+  --accent-soft: rgba(255, 92, 122, 0.18);
+  --success: #37D493;
+  --warning: #FFC857;
+  --danger: #FF4B6E;
+  --text: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow-strong: 0 24px 80px rgba(0, 0, 0, 0.85);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
