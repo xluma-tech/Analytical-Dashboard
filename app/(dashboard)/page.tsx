@@ -20,7 +20,7 @@ export default function OverviewPage() {
             {/* Header / Top Bar */}
             <div className="flex justify-between items-center mb-6 relative z-10">
                 <div>
-                    <h2 className="text-3xl font-bold tracking-tight text-white mb-1">
+                    <h2 className="text-3xl font-bold tracking-tight text-foreground dark:text-white mb-1">
                         Hi, <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00F0FF] to-[#7000FF]">Adam!</span>
                     </h2>
                     <p className="text-muted-foreground text-sm">Welcome Back</p>
@@ -50,7 +50,7 @@ export default function OverviewPage() {
                             <Card className="bg-surface-deep/50 border-white/5 backdrop-blur-md p-6 relative overflow-hidden group h-full flex flex-col justify-between">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#7000FF] to-[#00F0FF]" />
                                 <div>
-                                    <h3 className="font-bold text-2xl text-white text-center mt-4">$70 000</h3>
+                                    <h3 className="font-bold text-2xl text-foreground dark:text-white text-center mt-4">$70 000</h3>
                                     <p className="text-muted-foreground text-[10px] text-center uppercase tracking-widest">Earnings Quality</p>
                                 </div>
                                 <div className="h-32 w-full flex items-center justify-center -mt-4">
@@ -59,7 +59,7 @@ export default function OverviewPage() {
                                 <div className="flex justify-between items-end border-t border-white/5 pt-4">
                                     <div>
                                         <div className="text-[10px] text-muted-foreground uppercase">Traffic</div>
-                                        <div className="text-sm font-bold text-white">50 000</div>
+                                        <div className="text-sm font-bold text-foreground dark:text-white">50 000</div>
                                     </div>
                                     <div className="h-6 w-[1px] bg-white/10" />
                                     <div className="text-right">
@@ -73,13 +73,13 @@ export default function OverviewPage() {
                         {/* 2. Bar Chart (Radar in image) */}
                         <ScrollAnimation delay={0.3} className="h-full w-full">
                             <Card className="bg-surface-deep/50 border-white/5 backdrop-blur-md p-4 h-full flex flex-col">
-                                <h3 className="font-bold text-white mb-2">Bar Chart</h3>
+                                <h3 className="font-bold text-foreground dark:text-white mb-2">System Capabilities</h3>
                                 <div className="flex-1 min-h-0">
                                     <RadarChart />
                                 </div>
-                                <div className="flex justify-between text-[10px] text-muted-foreground mt-2 px-2">
-                                    <span>1.520</span>
-                                    <span>2.754</span>
+                                <div className="flex justify-between text-[10px] text-foreground mt-2 px-2">
+                                    <span>Current</span>
+                                    <span>Target</span>
                                 </div>
                             </Card>
                         </ScrollAnimation>
@@ -87,12 +87,12 @@ export default function OverviewPage() {
                         {/* 3. Dominance (Line/Area Sparkline or Stats) */}
                         <ScrollAnimation delay={0.4} className="h-full">
                             <Card className="bg-surface-deep/50 border-white/5 backdrop-blur-md p-6 h-full flex flex-col justify-around">
-                                <h3 className="font-bold text-white mb-2">Dominance</h3>
+                                <h3 className="font-bold text-foreground dark:text-white mb-2">Platform Usage</h3>
                                 {/* Simulated Stats matching image */}
                                 <div className="space-y-6">
                                     <div>
                                         <div className="flex justify-between mb-1">
-                                            <span className="text-xs text-muted-foreground">Bitcoin</span>
+                                            <span className="text-xs text-muted-foreground">Web App</span>
                                             <span className="text-xs text-[#7000FF] font-bold">46.2%</span>
                                         </div>
                                         <div className="h-1.5 w-full bg-surface-alt rounded-full overflow-hidden">
@@ -101,7 +101,7 @@ export default function OverviewPage() {
                                     </div>
                                     <div>
                                         <div className="flex justify-between mb-1">
-                                            <span className="text-xs text-muted-foreground">Ethereum</span>
+                                            <span className="text-xs text-muted-foreground">Mobile</span>
                                             <span className="text-xs text-[#00F0FF] font-bold">36.8%</span>
                                         </div>
                                         <div className="h-1.5 w-full bg-surface-alt rounded-full overflow-hidden">
@@ -110,11 +110,11 @@ export default function OverviewPage() {
                                     </div>
                                     <div>
                                         <div className="flex justify-between mb-1">
-                                            <span className="text-xs text-muted-foreground">Other</span>
-                                            <span className="text-xs text-white font-bold">12.9%</span>
+                                            <span className="text-xs text-muted-foreground">API</span>
+                                            <span className="text-xs text-foreground dark:text-white font-bold">12.9%</span>
                                         </div>
                                         <div className="h-1.5 w-full bg-surface-alt rounded-full overflow-hidden">
-                                            <div className="h-full bg-white w-[12%]" />
+                                            <div className="h-full bg-foreground dark:bg-white w-[12%]" />
                                         </div>
                                     </div>
                                 </div>
@@ -128,9 +128,9 @@ export default function OverviewPage() {
                         <ScrollAnimation delay={0.5} className="h-full w-full">
                             <Card className="bg-surface-deep/50 border-white/5 backdrop-blur-md p-4 h-full flex flex-col">
                                 <div className="flex justify-between items-center mb-4">
-                                    <h3 className="font-bold text-white">Dominance</h3>
+                                    <h3 className="font-bold text-foreground dark:text-white">Active Sessions</h3>
                                     <div className="flex gap-2">
-                                        <div className="size-3 bg-white/20 rounded-sm" />
+                                        <div className="size-3 bg-foreground/20 dark:bg-white/20 rounded-sm" />
                                         <div className="size-3 bg-[#7000FF] rounded-sm" />
                                         <div className="size-3 bg-[#00F0FF] rounded-sm" />
                                     </div>
@@ -144,7 +144,7 @@ export default function OverviewPage() {
                         {/* Recent Activity / Area Chart */}
                         <ScrollAnimation delay={0.6} className="h-full w-full">
                             <Card className="bg-surface-deep/50 border-white/5 backdrop-blur-md p-6 h-full flex flex-col relative overflow-hidden">
-                                <h3 className="absolute top-6 left-6 font-bold text-white z-10">Company activity</h3>
+                                <h3 className="absolute top-6 left-6 font-bold text-foreground dark:text-white z-10">Company activity</h3>
                                 <p className="absolute top-12 left-6 text-xs text-muted-foreground z-10">Over the last 24 hours</p>
                                 <div className="flex-1 mt-8 min-h-0">
                                     <CompanyActivityChart />
@@ -198,7 +198,7 @@ export default function OverviewPage() {
                     {/* Traffic Sources Chart */}
                     <ScrollAnimation className="bg-surface-deep/50 rounded-2xl border border-white/5 backdrop-blur-md p-6 h-[250px] overflow-hidden flex flex-col" delay={0.8}>
                         <div className="flex justify-between items-center mb-2">
-                            <h3 className="font-bold text-white">Traffic Sources</h3>
+                            <h3 className="font-bold text-foreground dark:text-white">Traffic Sources</h3>
                         </div>
                         <div className="flex-1 min-h-0">
                             <TrafficSourceChart />
@@ -208,14 +208,14 @@ export default function OverviewPage() {
                     {/* Marketing / Conversions (Placeholder for another chart to match) */}
                     <ScrollAnimation className="bg-surface-deep/50 rounded-2xl border border-white/5 backdrop-blur-md p-6 h-[220px] overflow-hidden flex flex-col" delay={0.9}>
                         <div className="flex justify-between items-center mb-4">
-                            <h3 className="font-bold text-white">Conversions</h3>
+                            <h3 className="font-bold text-foreground dark:text-white">Conversions</h3>
                             <div className="text-xs text-green-400">+12%</div>
                         </div>
                         <div className="space-y-4">
                             <div>
                                 <div className="flex justify-between text-xs text-muted-foreground mb-1">
                                     <span>Direct</span>
-                                    <span className="text-white">65%</span>
+                                    <span className="text-foreground dark:text-white">65%</span>
                                 </div>
                                 <div className="h-2 w-full bg-surface-alt rounded-full overflow-hidden">
                                     <div className="h-full bg-[#00F0FF] w-[65%]" />
@@ -224,7 +224,7 @@ export default function OverviewPage() {
                             <div>
                                 <div className="flex justify-between text-xs text-muted-foreground mb-1">
                                     <span>Social</span>
-                                    <span className="text-white">25%</span>
+                                    <span className="text-foreground dark:text-white">25%</span>
                                 </div>
                                 <div className="h-2 w-full bg-surface-alt rounded-full overflow-hidden">
                                     <div className="h-full bg-[#7000FF] w-[25%]" />
@@ -233,10 +233,10 @@ export default function OverviewPage() {
                             <div>
                                 <div className="flex justify-between text-xs text-muted-foreground mb-1">
                                     <span>Organic</span>
-                                    <span className="text-white">10%</span>
+                                    <span className="text-foreground dark:text-white">10%</span>
                                 </div>
                                 <div className="h-2 w-full bg-surface-alt rounded-full overflow-hidden">
-                                    <div className="h-full bg-white w-[10%]" />
+                                    <div className="h-full bg-foreground dark:bg-white w-[10%]" />
                                 </div>
                             </div>
                         </div>

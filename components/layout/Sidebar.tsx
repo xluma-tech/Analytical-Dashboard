@@ -2,24 +2,18 @@
 
 import { cn } from "@/lib/utils";
 import {
-    LayoutGrid,
-    Activity,
-    Wallet,
-    Layers,
-    Users,
-    Settings,
     ChevronDown,
-    ChevronLeft,
     ChevronRight,
     Plus,
-    ShieldCheck,
     Menu
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Image from "next/image";
 import dynamic from 'next/dynamic';
 import { AnimatePresence, motion } from "framer-motion";
+import { MENU_SECTIONS } from "@/lib/constants";
 
 const Plan3D = dynamic(() => import('@/components/canvas/Plan3D'), {
     ssr: false
@@ -36,71 +30,35 @@ export function Sidebar() {
         );
     };
 
-    // Define menu data inside or outside, but keep it simple
-    const menuSections = [
-        {
-            title: "Main Menu",
-            groups: [
-                {
-                    id: "dashboards",
-                    label: "Dashboard",
-                    icon: LayoutGrid,
-                    items: [
-                        { label: "Home", href: "/", icon: LayoutGrid },
-                        { label: "Revenue", href: "/revenue", icon: Activity },
-                        { label: "E-Wallet", href: "/wallet", icon: Wallet },
-                    ]
-                }
-            ]
-        },
-        {
-            title: "Workspace",
-            groups: [
-                {
-                    id: "applications",
-                    label: "Applications",
-                    icon: Layers,
-                    items: [
-                        { label: "Projects", href: "/projects", icon: Layers },
-                        { label: "Clients", href: "/customers", icon: Users },
-                        { label: "Team", href: "/team", icon: ShieldCheck },
-                    ]
-                }
-            ]
-        },
-        {
-            title: "Administration",
-            groups: [
-                {
-                    id: "settings", // Treat single items as groups with no items for rendering logic if needed, or handle separate
-                    label: "Settings",
-                    href: "/settings",
-                    icon: Settings
-                }
-            ]
-        }
-    ];
-
     return (
         <aside
             className={cn(
-                "relative flex flex-col border-r border-white/5 bg-surface-deep/95 backdrop-blur-2xl transition-all duration-300 h-screen sticky top-0 shadow-strong z-50",
+                "hidden md:flex relative flex-col border-r border-border dark:border-white/5 bg-surface dark:bg-[#0C121D] backdrop-blur-2xl transition-all duration-300 h-screen sticky top-0 shadow-strong z-50",
                 collapsed ? "w-20" : "w-72"
             )}
         >
             {/* Header / Logo */}
             <div className="h-24 flex items-center justify-between px-6 shrink-0 relative group/header">
                 <div className={cn("flex items-center w-full", collapsed ? "justify-center" : "")}>
-                    <div className="size-8 rounded-lg bg-gradient-to-br from-[#00F0FF] to-[#7000FF] shadow-neon shrink-0 flex items-center justify-center">
-                        <div className="size-3 bg-white rounded-full mix-blend-overlay" />
+                    <div className="size-12 relative shrink-0 flex items-center justify-center group/logo">
+                        {/* Glow effect behind the logo */}
+                        <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover/logo:opacity-100 transition-opacity duration-500" />
+
+                        <Image
+                            src="/assets/logo.jpg"
+                            alt="Xluma Logo"
+                            width={48}
+                            height={48}
+                            className="object-contain dark:mix-blend-screen mix-blend-multiply dark:filter-none filter invert contrast-150 scale-125"
+                        />
                     </div>
 
                     {!collapsed && (
                         <div className="flex-1 ml-4 flex items-center justify-between">
-                            <span className="font-bold text-xl tracking-tight text-white font-sans">
-                                Oriton
+                            <span className="font-bold text-2xl tracking-tight text-foreground dark:text-white font-sans bg-clip-text text-transparent bg-gradient-to-r from-primary to-purple-600 dark:from-white dark:to-white/70">
+                                Xluma
                             </span>
-                            <button className="flex items-center gap-1 text-[10px] bg-white/5 hover:bg-white/10 px-2 py-1.5 rounded-full text-muted-foreground transition-colors border border-white/5 font-medium uppercase tracking-wide">
+                            <button className="flex items-center gap-1 text-[10px] bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-2 py-1.5 rounded-full text-muted-foreground transition-colors border border-black/5 dark:border-white/5 font-medium uppercase tracking-wide">
                                 <Plus size={10} /> Add
                             </button>
                         </div>
@@ -121,7 +79,7 @@ export function Sidebar() {
 
             {/* Nav */}
             <div className="flex-1 py-4 px-6 space-y-8 overflow-y-auto scrollbar-hide">
-                {menuSections.map((section, idx) => (
+                {MENU_SECTIONS.map((section, idx) => (
                     <div key={idx} className={cn("space-y-4", collapsed ? "hidden" : "block")}>
                         <div className="text-[11px] font-bold text-[#00F0FF] uppercase tracking-[0.2em] font-sans">
                             {section.title}
@@ -139,10 +97,10 @@ export function Sidebar() {
                                             href={group.href}
                                             className={cn(
                                                 "flex items-center gap-3 px-0 py-2 group transition-colors",
-                                                isActive ? "text-white" : "text-muted-foreground hover:text-white"
+                                                isActive ? "text-foreground dark:text-white" : "text-muted-foreground hover:text-foreground dark:hover:text-white"
                                             )}
                                         >
-                                            <Icon size={18} className={cn(isActive ? "text-[#00F0FF]" : "text-muted-foreground group-hover:text-white")} />
+                                            <Icon size={18} className={cn(isActive ? "text-primary dark:text-[#00F0FF]" : "text-muted-foreground group-hover:text-primary dark:group-hover:text-white")} />
                                             <span className="text-sm font-medium">{group.label}</span>
                                         </Link>
                                     );
@@ -159,11 +117,11 @@ export function Sidebar() {
                                             onClick={() => toggleGroup(group.id)}
                                             className={cn(
                                                 "flex items-center justify-between py-2 cursor-pointer group transition-colors",
-                                                isExpanded || hasActiveChild ? "text-white" : "text-muted-foreground hover:text-white"
+                                                isExpanded || hasActiveChild ? "text-foreground dark:text-white" : "text-muted-foreground hover:text-foreground dark:hover:text-white"
                                             )}
                                         >
                                             <div className="flex items-center gap-3">
-                                                <GroupIcon size={18} className={cn((isExpanded || hasActiveChild) ? "text-[#00F0FF]" : "text-muted-foreground group-hover:text-white")} />
+                                                <GroupIcon size={18} className={cn((isExpanded || hasActiveChild) ? "text-primary dark:text-[#00F0FF]" : "text-muted-foreground group-hover:text-primary dark:group-hover:text-white")} />
                                                 <span className="text-sm font-medium">{group.label}</span>
                                             </div>
                                             <ChevronDown
@@ -191,8 +149,8 @@ export function Sidebar() {
                                                                     className={cn(
                                                                         "block py-2 pl-4 text-sm transition-all relative",
                                                                         isActive
-                                                                            ? "text-[#00F0FF] font-medium"
-                                                                            : "text-muted-foreground/60 hover:text-white"
+                                                                            ? "text-primary dark:text-[#00F0FF] font-medium"
+                                                                            : "text-muted-foreground/60 hover:text-foreground dark:hover:text-white"
                                                                     )}
                                                                 >
                                                                     {item.label}
@@ -213,7 +171,7 @@ export function Sidebar() {
                 {/* Collapsed View: Flattened Icons */}
                 {collapsed && (
                     <div className="flex flex-col items-center gap-4 pt-4 w-full">
-                        {menuSections.map((section, sIdx) => (
+                        {MENU_SECTIONS.map((section, sIdx) => (
                             <div key={sIdx} className="w-full flex flex-col items-center border-b border-white/5 pb-4 mb-4 last:border-0">
                                 {section.groups.flatMap((group: any) => {
                                     if (group.items) {

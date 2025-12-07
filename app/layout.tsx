@@ -10,8 +10,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-    title: "Nova Analytics",
-    description: "Premium SaaS Analytics Dashboard",
+    title: {
+        default: "Xluma | Advanced Analytics Dashboard",
+        template: "%s | Xluma"
+    },
+    description: "Production-ready, high-performance analytics dashboard powered by Next.js 14 and Tailwind CSS.",
+    metadataBase: new URL("https://xluma-demo.com"), // Placeholder
+    openGraph: {
+        title: "Xluma Dashboard",
+        description: "Experience the next generation of analytics.",
+        type: "website",
+    }
 };
 
 export default function RootLayout({

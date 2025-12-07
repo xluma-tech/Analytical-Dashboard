@@ -17,76 +17,76 @@ const avatars = [
 
 const projects = [
     {
-        title: "Neon Branding",
-        client: "Aurora Tech",
+        title: "API V2 Refactor",
+        client: "Engineering",
         status: "In Progress",
         completion: 65,
         deadline: "Nov 24",
         team: [avatars[0], avatars[1], avatars[2]],
         color: "bg-primary",
-        brief: "Rebranding for a fintech startup focusing on Gen Z."
+        brief: "Migrating legacy endpoints to GraphQL for better performance."
     },
     {
-        title: "Dashboard UI Kit",
-        client: "Internal",
+        title: "Mobile App Beta",
+        client: "Product",
         status: "Review",
         completion: 90,
         deadline: "Oct 12",
         team: [avatars[3], avatars[4]],
         color: "bg-accent",
-        brief: "Comprehensive dark mode dashboard system."
+        brief: "Final polish and QA before public release to App Store."
     },
     {
-        title: "Mobile App Redesign",
-        client: "Vortex Inc",
+        title: "Customer Portal",
+        client: "Web Team",
         status: "Planning",
         completion: 25,
         deadline: "Dec 01",
         team: [avatars[5], avatars[0]],
         color: "bg-yellow-400",
-        brief: "UX audit and visual overhaul for iOS app."
+        brief: "Self-service dashboard for billing and user management."
     },
     {
-        title: "Marketing Website",
-        client: "Solaris",
+        title: "Infrastructure Scaling",
+        client: "DevOps",
         status: "Completed",
         completion: 100,
         deadline: "Sep 30",
         team: [avatars[1], avatars[2], avatars[4]],
         color: "bg-success",
-        brief: "Landing page with 3D interactions and WebGL."
+        brief: "Moved core database to managed cluster with auto-scaling."
     },
     {
-        title: "Q4 Financial Report",
-        client: "Finance Dept",
+        title: "Q4 Roadmap Planning",
+        client: "Strategy",
         status: "In Progress",
         completion: 45,
         deadline: "Oct 30",
         team: [avatars[3]],
         color: "bg-primary",
-        brief: "Data visualization and investor deck preparation."
+        brief: "Defining OKRs and resource allocation for next quarter."
     },
     {
-        title: "User Testing",
-        client: "Product",
+        title: "Security Audit",
+        client: "Security",
         status: "Planning",
         completion: 10,
         deadline: "Nov 15",
         team: [avatars[4], avatars[2]],
         color: "bg-accent",
-        brief: "Conducting user interviews for the new feature set."
+        brief: "Annual penetration testing and compliance review."
     }
 ];
 
 export default function ProjectsPage() {
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">Projects</h1>
-                    <p className="text-muted-foreground mt-1">Track progress and manage team workload.</p>
+                    <h1 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">Projects</h1>
+                    <p className="text-muted-foreground mt-1 text-sm md:text-base">Track progress and manage team workload.</p>
                 </div>
-                <Button variant="primary" className="shadow-neon">
+                <Button variant="primary" className="shadow-neon w-full md:w-auto">
                     <Plus className="size-4 mr-2" /> New Project
                 </Button>
             </div>

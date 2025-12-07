@@ -25,23 +25,23 @@ const revenueData = [
 export default function RevenuePage() {
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
-            <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h2 className="text-3xl font-bold tracking-tight">Revenue Performance</h2>
-                    <p className="text-muted-foreground">Track projected income, refunds, and subscription health.</p>
+                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Revenue Performance</h2>
+                    <p className="text-muted-foreground text-sm md:text-base">Track projected income, refunds, and subscription health.</p>
                 </div>
-                <div className="flex items-center gap-2">
-                    <Button variant="outline" size="sm" className="gap-2">
+                <div className="flex items-center gap-2 w-full md:w-auto">
+                    <Button variant="outline" size="sm" className="gap-2 flex-1 md:flex-none">
                         <Filter size={14} />
                         Filters
                     </Button>
-                    <Button variant="primary" size="sm">Download Report</Button>
+                    <Button variant="primary" size="sm" className="flex-1 md:flex-none">Download Report</Button>
                 </div>
             </div>
 
             <KPIGroup />
 
-            <Card className="p-6">
+            <Card className="p-4 md:p-6">
                 <div className="flex justify-between items-center mb-6">
                     <div>
                         <h3 className="text-xl font-semibold">Revenue vs. Refunds</h3>

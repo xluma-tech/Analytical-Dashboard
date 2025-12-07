@@ -7,58 +7,58 @@ import { Plus } from "lucide-react";
 
 const contacts = [
     {
-        name: "Adriana Artley",
-        role: "Marketing Director",
-        company: "Marost",
-        segment: "Enterprise",
-        avatarSeed: "adriana",
-        nextStep: "Schedule discovery call",
+        name: "Sarah Chen",
+        role: "CTO",
+        company: "TechStart Inc",
+        segment: "SMB",
+        avatarSeed: "sarah",
+        nextStep: "Integration Review",
         nextStepAt: "2025-03-28T14:00:00Z",
-        channels: ["email", "call", "video"]
+        channels: ["email", "video"]
     },
     {
-        name: "Bruce Colborn",
-        role: "VP Revenue",
-        company: "Orton Labs",
-        segment: "Growth",
-        avatarSeed: "bruce",
-        nextStep: "Share Q2 forecast dashboard",
+        name: "Michael Ross",
+        role: "VP Engineering",
+        company: "Global Bank",
+        segment: "Enterprise",
+        avatarSeed: "michael",
+        nextStep: "Security Audit",
         nextStepAt: "2025-03-21T16:30:00Z",
         highlighted: true,
         pinned: true,
-        channels: ["email", "chat"]
-    },
-    {
-        name: "Bella Carr-Gomm",
-        role: "Head of Ops",
-        company: "Futura Bank",
-        segment: "Enterprise",
-        avatarSeed: "bella",
-        nextStep: "Review SLA changes",
-        nextStepAt: "2025-03-19T11:00:00Z",
         channels: ["email", "call"]
     },
     {
-        name: "Cade Carlyle",
-        role: "Product Lead",
-        company: "NeonPay",
-        segment: "Trial",
-        avatarSeed: "cade",
-        nextStep: "Activate trial extension",
+        name: "Elena Rodriguez",
+        role: "Product Owner",
+        company: "Logistics Pro",
+        segment: "Mid-Market",
+        avatarSeed: "elena",
+        nextStep: "Feature Request Sync",
+        nextStepAt: "2025-03-19T11:00:00Z",
+        channels: ["slack", "email"]
+    },
+    {
+        name: "David Kim",
+        role: "Founder",
+        company: "Acme Corp",
+        segment: "Startup",
+        avatarSeed: "david",
+        nextStep: "Onboarding Check-in",
         nextStepAt: "2025-03-18T09:30:00Z",
-        channels: ["chat"]
+        channels: ["video"]
     }
 ];
 
 export default function CustomersPage() {
     return (
         <div className="space-y-6 animate-in fade-in duration-500">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h2 className="text-3xl font-bold tracking-tight">Customers</h2>
-                    <p className="text-muted-foreground">Manage relationships and track engagement.</p>
+                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight">Customers</h2>
+                    <p className="text-muted-foreground text-sm md:text-base">Manage relationships and track engagement.</p>
                 </div>
-                <Button variant="primary" className="gap-2">
+                <Button variant="primary" className="gap-2 w-full md:w-auto">
                     <Plus size={16} />
                     Add Customer
                 </Button>

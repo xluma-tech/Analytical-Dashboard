@@ -9,16 +9,16 @@ import { MetricCard } from "@/components/overview/MetricCard";
 export default function WalletPage() {
     return (
         <div className="space-y-8 animate-in fade-in duration-500">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">E-Wallet</h1>
-                    <p className="text-muted-foreground mt-1">Manage cards, assets, and transfers.</p>
+                    <h1 className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">E-Wallet</h1>
+                    <p className="text-muted-foreground mt-1 text-sm md:text-base">Manage cards, assets, and transfers.</p>
                 </div>
-                <div className="flex gap-3">
-                    <Button variant="outline" className="gap-2">
+                <div className="flex gap-3 w-full md:w-auto">
+                    <Button variant="outline" className="gap-2 flex-1 md:flex-none">
                         <Plus className="size-4" /> Add Card
                     </Button>
-                    <Button variant="primary" className="shadow-neon">
+                    <Button variant="primary" className="shadow-neon flex-1 md:flex-none">
                         Top Up Wallet
                     </Button>
                 </div>
